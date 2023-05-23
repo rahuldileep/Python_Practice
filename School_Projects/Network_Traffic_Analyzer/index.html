@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+	<head>
+				<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>GeoLite Legacy Downloadable Databases &laquo; Maxmind Developer Site</title>
+
+<link rel="stylesheet" href="http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=3.5.3.1" type="text/css" media="all" />
+
+				<link rel="alternate" hreflang="en-US" href="http://dev.maxmind.com/geoip/legacy/geolite/" />
+<link rel="alternate" hreflang="zh-CN" href="http://dev.maxmind.com/zh-hans/geoip/legacy/geolite/" />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Maxmind Developer Site &raquo; Feed" href="http://dev.maxmind.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Maxmind Developer Site &raquo; Comments Feed" href="http://dev.maxmind.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/dev.maxmind.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='crayon-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='page-list-style-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/page-list/css/page-list.css?ver=5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/table-of-contents-plus/screen.min.css?ver=1509' type='text/css' media='all' />
+<link rel='stylesheet' id='maxmind-bootstrap-css'  href='//www.maxmind.com/css/maxmind.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='highlight-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/highlight-github.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='the-bootstrap-css'  href='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/style.min.css?ver=2.0.0' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.4 - Universal disabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-171943-3']);
+	_gaq.push(['_gat._forceSSL']);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/dev.maxmind.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta'></script>
+<link rel='https://api.w.org/' href='http://dev.maxmind.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://dev.maxmind.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://dev.maxmind.com/wp-includes/wlwmanifest.xml" /> 
+<link rel="canonical" href="http://dev.maxmind.com/geoip/legacy/geolite/" />
+<link rel='shortlink' href='http://dev.maxmind.com/?p=43' />
+<link rel="alternate" type="application/json+oembed" href="http://dev.maxmind.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdev.maxmind.com%2Fgeoip%2Flegacy%2Fgeolite%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://dev.maxmind.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdev.maxmind.com%2Fgeoip%2Flegacy%2Fgeolite%2F&#038;format=xml" />
+<meta name="generator" content="WPML ver:3.5.3.1 stt:61,1,28,47;" />
+
+<style type="text/css">												                                                                                    										
+</style>	<!--[if lt IE 9]>
+		<script src="http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/js/html5shiv.min.js" type="text/javascript"></script>
+		<script src="http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/js/respond.min.js" type="text/javascript"></script>
+	<![endif]-->
+		</head>
+
+	<body class="page page-id-43 page-child parent-pageid-37 page-template-default content-sidebar">
+		<div class="container-fluid" style="max-width: 1200px">
+			<div class="row-fluid">
+				<div class="span3">
+										<a id="header-image" href="https://www.maxmind.com/en/" title="Maxmind Developer Site" rel="home">
+						<img src="http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/uploads/2016/10/maxmind-logo.gif" alt="" />
+					</a>
+									</div>
+								<!-- XXX - inline style -->
+				<header id="branding" role="banner" class="span9">
+					<nav class="menu-nav-container"><ul id="menu-nav" class="nav nav-tabs"><li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="http://dev.maxmind.com/">Dev Home</a></li>
+<li id="menu-item-2185" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2185"><a href="http://dev.maxmind.com/minfraud/">minFraud</a></li>
+<li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current_page_ancestor menu-item-has-children menu-item-26 active"><a href="http://dev.maxmind.com/geoip/">GeoIP</a></li>
+<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="http://dev.maxmind.com/faq/">FAQ</a></li>
+<li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a href="http://www.maxmind.com/">Main Site</a></li>
+<li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="http://dev.maxmind.com/site-map/">Site Map</a></li>
+</ul></nav>									</header>
+			</div>
+			<div class="row-fluid">
+	<div class="span3">
+		<section id="secondary" class="widget-area">
+	<aside id="icl_lang_sel_widget-1" class="widget clearfix widget_icl_lang_sel_widget">
+		<div id="lang_sel_list" class="lang_sel_list_vertical">
+			<ul>
+				<li class="icl-en"><a href="http://dev.maxmind.com/geoip/legacy/geolite/"  class="lang_sel_sel">English</a></li><li class="icl-zh-hans"><a href="http://dev.maxmind.com/zh-hans/geoip/legacy/geolite/"  class="lang_sel_other">简体中文</a></li>			</ul>
+		</div>
+	</aside><aside id="search-2" class="widget clearfix widget_search"><h4 class="widget-title">Search</h4>
+<form method="get" id="site-search"  action="http://dev.maxmind.com/">
+	<label for="s" class="assistive-text hidden">Search</label>
+	<div class="input-append">
+		<input id="s" class="input-medium" type="search" name="s" placeholder="Search">
+		<button class="btn btn-primary" name="submit" type="submit"><i class="icon-search icon-white"></i></button>
+	</div>
+</form>
+</aside><aside id="toc-widget-2" class="widget clearfix toc_widget"><h4 class="widget-title">Table of Contents</h4><ul class="toc_widget_list have_bullets"><li><a href="#Databases">Databases</a><ul><li><a href="#IP_Geolocation">IP Geolocation</a></li><li><a href="#Autonomous_System_Numbers">Autonomous System Numbers</a></li></ul></li><li><a href="#Support">Support</a></li><li><a href="#License">License</a></li><li><a href="#Downloads">Downloads</a></li></ul></aside><aside id="nav_menu-2" class="widget clearfix widget_nav_menu"><h4 class="widget-title">Links</h4><div class="menu-left-hand-menu-container"><ul id="menu-left-hand-menu" class="menu"><li id="menu-item-1405" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1405"><a href="http://status.maxmind.com/">System Status</a></li>
+</ul></div></aside><aside id="text-2" class="widget clearfix widget_text">			<div class="textwidget"><!-- begin olark code -->
+<script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+f[z]=function(){
+(a.s=a.s||[]).push(arguments)};var a=f[z]._={
+},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+0:+new Date};a.P=function(u){
+a.p[u]=new Date-a.p[0]};function s(){
+a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+b.contentWindow[g].open()}catch(w){
+c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+/* custom configuration goes here (www.olark.com/documentation) */
+olark.identify('8022-431-10-3383');/*]]>*/</script><noscript><a href="https://www.olark.com/site/8022-431-10-3383/contact" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'https://www.olark.com/site/8022-431-10-3383/contact', 'Questions? Feedback?']);" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://www.olark.com?welcome', 'Olark live chat software']);" title="Olark live chat software">Olark live chat software</a></noscript>
+<!-- end olark code --></div>
+		</aside></section><!-- #secondary .widget-area -->
+	</div>
+	<div id="primary" class="span9">
+				<div id="content" role="main">
+			<article id="post-43" class="post-43 page type-page status-publish hentry">
+	
+	<h1 class="entry-title">GeoLite Legacy Downloadable Databases</h1>
+	<div class="entry-content clearfix">
+		<div class="alert alert-block">
+<p><strong>New Database Format Available:</strong> This page is for our legacy databases. For our latest database format, please see our <a title="GeoLite2 Databases" href="http://dev.maxmind.com/geoip/geoip2/geolite2/">GeoLite2 Databases</a>.</p>
+</div>
+<h2><span id="Databases"><a name="Databases-0"></a>Databases</span></h2>
+<h3><span id="IP_Geolocation"><a name="IP_Geolocation-1"></a>IP Geolocation</span></h3>
+<p>The GeoLite databases are our free IP geolocation databases. They are updated on the first Tuesday of each month. These databases are offered in the same <a href="http://dev.maxmind.com/geoip/legacy/downloadable/">binary</a> and <a href="http://dev.maxmind.com/geoip/legacy/csv/">csv</a> formats as our subscription databases. Any code which can read the subscription databases can also read the GeoLite databases.</p>
+<p>
+IP geolocation is inherently imprecise. Locations are often near the center of
+the population. Any location provided by a GeoIP database should not be used to
+identify a particular address or household.
+</p>
+<p>We publish <a href="https://www.maxmind.com/en/geoip2-city-database-accuracy?country=United+States&#038;resolution=50">accuracy statistics for GeoLite City</a>.</p>
+<h3><span id="Autonomous_System_Numbers"><a name="Autonomous_System_Numbers-2"></a>Autonomous System Numbers</span></h3>
+<p>We offer free databases that map IPv4 and <a href="https://www.maxmind.com/en/ipv6-information-and-faq">IPv6</a> addresses to Autonomous System Numbers (ASN), including the names of each Autonomous System. The databases are updated every month.</p>
+<h2><span id="Support"><a name="Support-3"></a>Support</span></h2>
+<p>MaxMind does not provide customer support for free GeoLite databases. If you have questions on how to use these databases, we suggest asking on <a href="http://stackoverflow.com/questions/tagged/geoip" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://stackoverflow.com/questions/tagged/geoip', 'Stack Overflow']);" >Stack Overflow</a>.</p>
+<h2><span id="License"><a name="License-4"></a>License</span></h2>
+<p>The GeoLite databases are distributed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://creativecommons.org/licenses/by-sa/4.0/', 'Creative Commons Attribution-ShareAlike 4.0 International License']);" >Creative Commons Attribution-ShareAlike 4.0 International License</a>. The attribution requirement may be met by including the following in all advertising and documentation mentioning features of or use of this database:</p>
+ 
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-584376ed8ff2f466974887" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 13px !important; line-height: 17px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 17px !important;"><div class="crayon-num" data-line="crayon-584376ed8ff2f466974887-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-584376ed8ff2f466974887-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 17px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-584376ed8ff2f466974887-1"><span class="crayon-r">This</span><span class="crayon-h"> </span><span class="crayon-e">product </span><span class="crayon-e">includes </span><span class="crayon-e">GeoLite </span><span class="crayon-e">data </span><span class="crayon-e">created </span><span class="crayon-e">by </span><span class="crayon-v">MaxMind</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">available </span><span class="crayon-v">from</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-584376ed8ff2f466974887-2"><span class="crayon-o">&lt;</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.maxmind.com"</span><span class="crayon-o">&gt;</span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-c">//www.maxmind.com&lt;/a&gt;.</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+ 
+
+<p>We also offer <a href="https://www.maxmind.com/en/geolite2-developer-package">commercial redistribution licensing</a>.</p>
+<h2><span id="Downloads"><a name="Downloads-5"></a>Downloads</span></h2>
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th></th>
+<th colspan="3">Download links</th>
+</tr>
+<tr>
+<th>Database</th>
+<th>Binary / gzip</th>
+<th>Binary / xz</th>
+<th>CSV / gzip</th>
+<th>CSV / zip</th>
+<th>CSV / xz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GeoLite Country</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz">Download</a></td>
+<td>Gzip only</td>
+<td>Zip only</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip" onclick="_gaq.push(['_trackEvent','download','http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip']);" >Download</a></td>
+<td>Zip only</td>
+</tr>
+<tr>
+<td>GeoLite Country IPv6</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz">Download</a></td>
+<td>Gzip only</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoIPv6.csv.gz">Download</a></td>
+<td>Gzip only</td>
+<td>Gzip only</td>
+</tr>
+<tr>
+<td>GeoLite City</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz">Download</a></td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.xz">Download</a></td>
+<td>Zip and xz only</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity_CSV/GeoLiteCity-latest.zip" onclick="_gaq.push(['_trackEvent','download','http://geolite.maxmind.com/download/geoip/database/GeoLiteCity_CSV/GeoLiteCity-latest.zip']);" >Download</a></td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity_CSV/GeoLiteCity-latest.tar.xz">Download</a></td>
+</tr>
+<tr>
+<td>GeoLite City IPv6 (Beta)</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz">Download</a></td>
+<td>Gzip only</td>
+<td><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.csv.gz">Download</a></td>
+<td>Gzip only</td>
+<td>Gzip only</td>
+</tr>
+<tr>
+<td>GeoLite ASN</td>
+<td><a href="http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz">Download</a></td>
+<td>Gzip only</td>
+<td>Zip only</td>
+<td><a href="http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2.zip" onclick="_gaq.push(['_trackEvent','download','http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2.zip']);" >Download</a></td>
+<td>Zip only</td>
+</tr>
+<tr>
+<td>GeoLite ASN IPv6</td>
+<td><a href="http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNumv6.dat.gz">Download</a></td>
+<td>Gzip only</td>
+<td>Zip only</td>
+<td><a href="http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2v6.zip" onclick="_gaq.push(['_trackEvent','download','http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2v6.zip']);" >Download</a></td>
+<td>Zip only</td>
+</tr>
+</tbody></table>
+<p>
+The GeoLite Legacy databases may also be downloaded and updated with our <a href="http://dev.maxmind.com/geoip/geoipupdate/">GeoIP Update program</a>.
+</p>	</div><!-- .entry-content -->
+	</article><!-- #post-43 -->
+		</div><!-- #content -->
+			</div><!-- #primary -->
+</div>
+            <div class="row-fluid">
+                <footer id="colophon" role="contentinfo" class="offset3 span9">
+                    <hr />
+                                        <div id="page-footer" class="clearfix">
+                        <div class="menu-footer-container"><ul id="menu-footer" class="inline"><li id="menu-item-1386" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1386"><a href="https://www.maxmind.com/en/terms_of_use">Terms of Use</a></li>
+<li id="menu-item-1387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1387"><a href="https://www.maxmind.com/en/privacy_policy">Privacy Policy</a></li>
+<li id="menu-item-1388" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1388"><a href="https://www.maxmind.com/en/contact">Contact</a></li>
+<li id="menu-item-1389" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1389"><a href="http://blog.maxmind.com/">Blog</a></li>
+<li id="menu-item-1390" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1390"><a href="https://twitter.com/maxmind" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'https://twitter.com/maxmind', 'Twitter']);" >Twitter</a></li>
+</ul></div>                        <p>MaxMind, GeoIP, minFraud, and related trademarks are the trademarks of MaxMind, Inc.</p>
+                        <p>Copyright&copy; 2012-2016 MaxMind, Inc. All Rights Reserved.</p>
+                    </div><!-- #page-footer .well .clearfix -->
+                                    </footer><!-- #colophon -->
+            </div>
+                    </div><!-- .container -->
+        <script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/table-of-contents-plus/front.min.js?ver=1509'></script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/js/bootstrap.min.js?ver=2.0.3'></script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/js/highlight.pack.js?ver=1.0'></script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/themes/dev-site-theme/js/the-bootstrap.min.js?ver=2.0.0'></script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-includes/js/wp-embed.min.js?ver=4.6.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var icl_vars = {"current_language":"en","icl_home":"http:\/\/dev.maxmind.com\/","ajax_url":"https:\/\/dev.maxmind.com\/wp-admin\/admin-ajax.php","url_type":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://43jvg82rnbo4fbuxm18it39y.wpengine.netdna-cdn.com/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js?ver=4.6.1'></script>
+    </body>
+</html>

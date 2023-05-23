@@ -1,0 +1,1101 @@
+{
+  "credentials": [
+    {
+      "name": "default",
+      "password": "cisco123",
+      "username": "cafyauto"
+    },
+    {
+      "name": "PXE1",
+      "password": "roZes123",
+      "username": "root"
+    },
+    {
+      "name": "PC",
+      "password": "raritan",
+      "username": "admin"
+    },
+    {
+      "name": "UCS1",
+      "password": "roZes!23",
+      "username": "root"
+    }
+  ],
+  "debug_engine": {
+    "Collector": {
+      "Methods": {
+        "HTTP": {
+          "ip": "5.1.12.35",
+          "path": "upload_file.php",
+          "server_path": "/auto/debug-ott/collector/"
+        },
+        "TFTP": {
+          "ip": "223.255.254.254",
+          "path": "/auto/debug-ott/collector/"
+        }
+      }
+    },
+    "debug_server": {
+      "name": "ott-pifib-ss3.cisco.com"
+    },
+    "logstash_server": {
+      "name": "ott-pifib-ss3.cisco.com",
+      "port": 5000
+    },
+    "management_server": {
+      "interface": "MgmtEth0/RSP0/CPU0/0",
+      "ip": "5.1.12.35",
+      "name": "ott-pifib-ss3.cisco.com",
+      "snmp": {
+        "port": "8000"
+      },
+      "syslog": {
+        "port": "514"
+      },
+      "telemetry": {
+        "port": "5432"
+      }
+    }
+  },
+  "name": "F3A-ASR9900-MOD-POD14",
+  "nodes": [
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.12.17.1",
+              "name": "ai"
+            }
+          ],
+          "interface": "eth0",
+          "name": "eth0"
+        }
+      ],
+      "alias": "PXE",
+      "credential": "PXE1",
+      "dhcpd_root": "/etc/dhcp",
+      "handles": [
+        {
+          "connection": "linux",
+          "credential": "PXE1",
+          "default": true,
+          "name": "linux",
+          "via": "eth0.ai"
+        }
+      ],
+      "id": 7,
+      "name": "ott-idt-pxe1",
+      "platform": "linux",
+      "type": "linux",
+      "web_root": "/nobackup/html/"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.240",
+              "name": "ai"
+            }
+          ],
+          "interface": "eth0",
+          "name": "eth0"
+        }
+      ],
+      "alias": "RARPC1",
+      "credential": "PC",
+      "id": 1000,
+      "name": "raritan_pc1",
+      "platform": "raritan",
+      "type": "powercycler"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.241",
+              "name": "ai"
+            }
+          ],
+          "interface": "eth0",
+          "name": "eth0"
+        }
+      ],
+      "alias": "RARPC2",
+      "credential": "PC",
+      "id": 1001,
+      "name": "raritan_pc2",
+      "platform": "raritan",
+      "type": "powercycler"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.12",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "virtual",
+          "name": "virtual"
+        },
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.10",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "RSP0",
+          "name": "RSP0"
+        },
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.11",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "RSP1",
+          "name": "RSP1"
+        },
+        {
+          "address_info": [
+            {
+              "address": "10.85.82.147",
+              "name": "a",
+              "port": 2001
+            },
+            {
+              "address": "10.85.82.147",
+              "name": "b",
+              "port": 2011
+            }
+          ],
+          "interface": "console",
+          "name": "console"
+        }
+      ],
+      "alias": "R1",
+      "handles": [
+        {
+          "connection": "ha",
+          "credential": "default",
+          "name": "console",
+          "via": "console"
+        },
+        {
+          "connection": "ssh",
+          "credential": "default",
+          "default": true,
+          "global_delay_factor": 2,
+          "name": "vty",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "telnet",
+          "credential": "default",
+          "name": "telnet",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "ydk",
+          "credential": "default",
+          "default": true,
+          "name": "ydk",
+          "via": "virtual.ai"
+        }
+      ],
+      "id": 458,
+      "interfaces": [
+        {
+          "alias": "R1_R2_1",
+          "interface": "TenGigE0/0/0/0/0",
+          "link": "R1_R2_1"
+        },
+        {
+          "alias": "R1_R2_2",
+          "interface": "TenGigE0/1/0/18",
+          "link": "R1_R2_2"
+        },
+        {
+          "alias": "R1_R2_3",
+          "interface": "TenGigE0/0/0/4/0",
+          "link": "R1_R2_3"
+        },
+        {
+          "alias": "R1_R2_4",
+          "interface": "TenGigE0/1/0/25",
+          "link": "R1_R2_4"
+        },
+        {
+          "alias": "R1_R2_5",
+          "interface": "TenGigE0/0/0/5/0",
+          "link": "R1_R2_5"
+        },
+        {
+          "alias": "R1_R2_6",
+          "interface": "TenGigE0/0/0/0/1",
+          "link": "R1_R2_6"
+        },
+        {
+          "alias": "R1_R2_7",
+          "interface": "TenGigE0/1/0/19",
+          "link": "R1_R2_7"
+        },
+        {
+          "alias": "R1_R2_8",
+          "interface": "TenGigE0/0/0/4/1",
+          "link": "R1_R2_8"
+        },
+        {
+          "alias": "R1_R2_9",
+          "interface": "TenGigE0/1/0/26",
+          "link": "R1_R2_9"
+        },
+        {
+          "alias": "R1_R2_10",
+          "interface": "TenGigE0/0/0/5/1",
+          "link": "R1_R2_10"
+        },
+        {
+          "alias": "R1_R2_11",
+          "interface": "TenGigE0/0/0/0/2",
+          "link": "R1_R2_11"
+        },
+        {
+          "alias": "R1_R2_12",
+          "interface": "TenGigE0/1/0/20",
+          "link": "R1_R2_12"
+        },
+        {
+          "alias": "R1_R2_13",
+          "interface": "TenGigE0/0/0/4/2",
+          "link": "R1_R2_13"
+        },
+        {
+          "alias": "R1_R2_14",
+          "interface": "TenGigE0/1/0/27",
+          "link": "R1_R2_14"
+        },
+        {
+          "alias": "R1_R2_15",
+          "interface": "TenGigE0/0/0/5/2",
+          "link": "R1_R2_15"
+        },
+        {
+          "alias": "R1_R2_16",
+          "interface": "TenGigE0/0/0/0/3",
+          "link": "R1_R2_16"
+        },
+        {
+          "alias": "R1_R2_17",
+          "interface": "TenGigE0/1/0/21",
+          "link": "R1_R2_17"
+        },
+        {
+          "alias": "R1_R2_18",
+          "interface": "TenGigE0/0/0/4/3",
+          "link": "R1_R2_18"
+        },
+        {
+          "alias": "R1_R2_19",
+          "interface": "TenGigE0/1/0/28",
+          "link": "R1_R2_19"
+        },
+        {
+          "alias": "R1_R2_20",
+          "interface": "TenGigE0/0/0/5/3",
+          "link": "R1_R2_20"
+        },
+        {
+          "alias": "R1_R2_21",
+          "interface": "TenGigE0/1/0/23",
+          "link": "R1_R2_21"
+        },
+        {
+          "alias": "R1_R2_22",
+          "interface": "TenGigE0/1/0/29",
+          "link": "R1_R2_22"
+        },
+        {
+          "alias": "R1_R3_1",
+          "interface": "TenGigE0/0/0/1/0",
+          "link": "R1_R3_1"
+        },
+        {
+          "alias": "R1_R3_2",
+          "interface": "TenGigE0/1/0/22",
+          "link": "R1_R3_2"
+        },
+        {
+          "alias": "R1_R3_3",
+          "interface": "TenGigE0/0/0/1/1",
+          "link": "R1_R3_3"
+        },
+        {
+          "alias": "R1_R3_4",
+          "interface": "TenGigE0/1/0/24",
+          "link": "R1_R3_4"
+        },
+        {
+          "alias": "R1_R3_5",
+          "interface": "TenGigE0/0/0/1/2",
+          "link": "R1_R3_5"
+        },
+        {
+          "alias": "R1_R3_6",
+          "interface": "TenGigE0/0/0/1/3",
+          "link": "R1_R3_6"
+        },
+        {
+          "alias": "R1_T1_1",
+          "interface": "TenGigE0/0/0/6/0",
+          "link": "R1_T1_1"
+        },
+        {
+          "alias": "R1_T1_2",
+          "interface": "TenGigE0/0/0/6/1",
+          "link": "R1_T1_2"
+        },
+        {
+          "alias": "R1_T1_3",
+          "interface": "TenGigE0/1/0/47",
+          "link": "R1_T1_3"
+        },
+        {
+          "alias": "R1_U1_1",
+          "interface": "TenGigE0/1/0/45",
+          "link": "R1_U1_1"
+        },
+        {
+          "alias": "R1_U1_2",
+          "interface": "TenGigE0/1/0/46",
+          "link": "R1_U1_2"
+        }
+      ],
+      "line_cards": [
+        {
+          "slot": "0/0/CPU0",
+          "type": "A9K-20HG-FLEX-SE"
+        },
+        {
+          "slot": "0/1/CPU0",
+          "type": "A9K-48X10GE-1G-SE"
+        }
+      ],
+      "name": "f3a-r1-pod14",
+      "os": "cisco_xr",
+      "platform": "ASR9904",
+      "power_cycler": [
+        {
+          "access_info": "eth0.ai",
+          "credential": "PC",
+          "name": "raritan_pc1",
+          "ports": "9,10,19,20"
+        }
+      ],
+      "pxe": [
+        {
+          "access_info": "eth0.ai",
+          "image_path": "F6-POD14/f3a-9904-r1-pod14/f3a-9904-r1-pod14.iso",
+          "protocol": "http",
+          "server": "ott-idt-pxe1"
+        }
+      ],
+      "type": "router"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.22",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "virtual",
+          "name": "virtual"
+        },
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.20",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "RSP0",
+          "name": "RSP0"
+        },
+        {
+          "address_info": [
+            {
+              "address": "10.85.82.147",
+              "name": "a",
+              "port": 2002
+            }
+          ],
+          "interface": "console",
+          "name": "console"
+        }
+      ],
+      "alias": "R2",
+      "handles": [
+        {
+          "connection": "ha",
+          "credential": "default",
+          "name": "console",
+          "via": "console"
+        },
+        {
+          "connection": "ssh",
+          "credential": "default",
+          "default": true,
+          "global_delay_factor": 2,
+          "name": "vty",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "telnet",
+          "credential": "default",
+          "name": "telnet",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "ydk",
+          "credential": "default",
+          "default": true,
+          "name": "ydk",
+          "via": "virtual.ai"
+        }
+      ],
+      "id": 459,
+      "interfaces": [
+        {
+          "alias": "R1_R2_1",
+          "interface": "TenGigE0/0/0/22",
+          "link": "R1_R2_1"
+        },
+        {
+          "alias": "R1_R2_2",
+          "interface": "TenGigE0/0/0/37",
+          "link": "R1_R2_2"
+        },
+        {
+          "alias": "R1_R2_3",
+          "interface": "TenGigE0/0/0/20",
+          "link": "R1_R2_3"
+        },
+        {
+          "alias": "R1_R2_4",
+          "interface": "TenGigE0/0/0/12",
+          "link": "R1_R2_4"
+        },
+        {
+          "alias": "R1_R2_5",
+          "interface": "TenGigE0/0/0/18",
+          "link": "R1_R2_5"
+        },
+        {
+          "alias": "R1_R2_6",
+          "interface": "TenGigE0/0/0/23",
+          "link": "R1_R2_6"
+        },
+        {
+          "alias": "R1_R2_7",
+          "interface": "TenGigE0/0/0/38",
+          "link": "R1_R2_7"
+        },
+        {
+          "alias": "R1_R2_8",
+          "interface": "TenGigE0/0/0/21",
+          "link": "R1_R2_8"
+        },
+        {
+          "alias": "R1_R2_9",
+          "interface": "TenGigE0/0/0/13",
+          "link": "R1_R2_9"
+        },
+        {
+          "alias": "R1_R2_10",
+          "interface": "TenGigE0/0/0/19",
+          "link": "R1_R2_10"
+        },
+        {
+          "alias": "R1_R2_11",
+          "interface": "TenGigE0/0/0/24",
+          "link": "R1_R2_11"
+        },
+        {
+          "alias": "R1_R2_12",
+          "interface": "TenGigE0/0/0/35",
+          "link": "R1_R2_12"
+        },
+        {
+          "alias": "R1_R2_13",
+          "interface": "TenGigE0/0/0/26",
+          "link": "R1_R2_13"
+        },
+        {
+          "alias": "R1_R2_14",
+          "interface": "TenGigE0/0/0/10",
+          "link": "R1_R2_14"
+        },
+        {
+          "alias": "R1_R2_15",
+          "interface": "TenGigE0/0/0/28",
+          "link": "R1_R2_15"
+        },
+        {
+          "alias": "R1_R2_16",
+          "interface": "TenGigE0/0/0/25",
+          "link": "R1_R2_16"
+        },
+        {
+          "alias": "R1_R2_17",
+          "interface": "TenGigE0/0/0/36",
+          "link": "R1_R2_17"
+        },
+        {
+          "alias": "R1_R2_18",
+          "interface": "TenGigE0/0/0/27",
+          "link": "R1_R2_18"
+        },
+        {
+          "alias": "R1_R2_19",
+          "interface": "TenGigE0/0/0/11",
+          "link": "R1_R2_19"
+        },
+        {
+          "alias": "R1_R2_20",
+          "interface": "TenGigE0/0/0/29",
+          "link": "R1_R2_20"
+        },
+        {
+          "alias": "R1_R2_21",
+          "interface": "TenGigE0/0/0/34",
+          "link": "R1_R2_21"
+        },
+        {
+          "alias": "R1_R2_22",
+          "interface": "TenGigE0/0/0/8",
+          "link": "R1_R2_22"
+        },
+        {
+          "alias": "R2_R3_1",
+          "interface": "TenGigE0/0/0/14",
+          "link": "R2_R3_1"
+        },
+        {
+          "alias": "R2_R3_2",
+          "interface": "TenGigE0/0/0/30",
+          "link": "R2_R3_2"
+        },
+        {
+          "alias": "R2_R3_3",
+          "interface": "TenGigE0/0/0/15",
+          "link": "R2_R3_3"
+        },
+        {
+          "alias": "R2_R3_4",
+          "interface": "TenGigE0/0/0/31",
+          "link": "R2_R3_4"
+        },
+        {
+          "alias": "R2_R3_5",
+          "interface": "TenGigE0/0/0/16",
+          "link": "R2_R3_5"
+        },
+        {
+          "alias": "R2_R3_6",
+          "interface": "TenGigE0/0/0/32",
+          "link": "R2_R3_6"
+        },
+        {
+          "alias": "R2_R3_7",
+          "interface": "TenGigE0/0/0/17",
+          "link": "R2_R3_7"
+        },
+        {
+          "alias": "R2_R3_8",
+          "interface": "TenGigE0/0/0/33",
+          "link": "R2_R3_8"
+        },
+        {
+          "alias": "R2_T1_1",
+          "interface": "TenGigE0/0/0/46",
+          "link": "R2_T1_1"
+        },
+        {
+          "alias": "R2_T1_2",
+          "interface": "TenGigE0/0/0/47",
+          "link": "R2_T1_2"
+        }
+      ],
+      "line_cards": [
+        {
+          "slot": "0/0/CPU0",
+          "type": "A9K-48X10GE-1G-SE"
+        }
+      ],
+      "name": "f3a-r2-pod14",
+      "os": "cisco_xr",
+      "platform": "ASR9904",
+      "power_cycler": [
+        {
+          "access_info": "eth0.ai",
+          "credential": "PC",
+          "name": "raritan_pc1",
+          "ports": "6,7"
+        }
+      ],
+      "pxe": [
+        {
+          "access_info": "eth0.ai",
+          "image_path": "F6-POD14/f3a-9904-r2-pod14/f3a-9904-r2-pod14.iso",
+          "protocol": "http",
+          "server": "ott-idt-pxe1"
+        }
+      ],
+      "type": "router"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.32",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "virtual",
+          "name": "virtual"
+        },
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.30",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "RSP0",
+          "name": "RSP0"
+        },
+        {
+          "address_info": [
+            {
+              "address": "10.85.82.147",
+              "name": "a",
+              "port": 2003
+            }
+          ],
+          "interface": "console",
+          "name": "console"
+        }
+      ],
+      "alias": "R3",
+      "handles": [
+        {
+          "connection": "ha",
+          "credential": "default",
+          "name": "console",
+          "via": "console"
+        },
+        {
+          "connection": "ssh",
+          "credential": "default",
+          "default": true,
+          "global_delay_factor": 2,
+          "name": "vty",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "telnet",
+          "credential": "default",
+          "name": "telnet",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "ydk",
+          "credential": "default",
+          "default": true,
+          "name": "ydk",
+          "via": "virtual.ai"
+        }
+      ],
+      "id": 460,
+      "interfaces": [
+        {
+          "alias": "R1_R3_1",
+          "interface": "TenGigE0/0/0/22",
+          "link": "R1_R3_1"
+        },
+        {
+          "alias": "R1_R3_2",
+          "interface": "TenGigE0/0/0/30",
+          "link": "R1_R3_2"
+        },
+        {
+          "alias": "R1_R3_3",
+          "interface": "TenGigE0/0/0/23",
+          "link": "R1_R3_3"
+        },
+        {
+          "alias": "R1_R3_4",
+          "interface": "TenGigE0/0/0/16",
+          "link": "R1_R3_4"
+        },
+        {
+          "alias": "R1_R3_5",
+          "interface": "TenGigE0/0/0/24",
+          "link": "R1_R3_5"
+        },
+        {
+          "alias": "R1_R3_6",
+          "interface": "TenGigE0/0/0/25",
+          "link": "R1_R3_6"
+        },
+        {
+          "alias": "R2_R3_1",
+          "interface": "TenGigE0/0/0/28",
+          "link": "R2_R3_1"
+        },
+        {
+          "alias": "R2_R3_2",
+          "interface": "TenGigE0/0/0/20",
+          "link": "R2_R3_2"
+        },
+        {
+          "alias": "R2_R3_3",
+          "interface": "TenGigE0/0/0/29",
+          "link": "R2_R3_3"
+        },
+        {
+          "alias": "R2_R3_4",
+          "interface": "TenGigE0/0/0/21",
+          "link": "R2_R3_4"
+        },
+        {
+          "alias": "R2_R3_5",
+          "interface": "TenGigE0/0/0/26",
+          "link": "R2_R3_5"
+        },
+        {
+          "alias": "R2_R3_6",
+          "interface": "TenGigE0/0/0/18",
+          "link": "R2_R3_6"
+        },
+        {
+          "alias": "R2_R3_7",
+          "interface": "TenGigE0/0/0/27",
+          "link": "R2_R3_7"
+        },
+        {
+          "alias": "R2_R3_8",
+          "interface": "TenGigE0/0/0/19",
+          "link": "R2_R3_8"
+        },
+        {
+          "alias": "R3_R4_1",
+          "interface": "TenGigE0/0/0/45",
+          "link": "R3_R4_1"
+        },
+        {
+          "alias": "R3_T1_1",
+          "interface": "TenGigE0/0/0/46",
+          "link": "R3_T1_1"
+        },
+        {
+          "alias": "R3_T1_2",
+          "interface": "TenGigE0/0/0/47",
+          "link": "R3_T1_2"
+        }
+      ],
+      "line_cards": [
+        {
+          "slot": "0/0/CPU0",
+          "type": "A9K-48X10GE-1G-SE"
+        }
+      ],
+      "name": "f3a-r3-pod14",
+      "os": "cisco_xr",
+      "platform": "ASR9904",
+      "power_cycler": [
+        {
+          "access_info": "eth0.ai",
+          "credential": "PC",
+          "name": "raritan_pc1",
+          "ports": "4,5"
+        }
+      ],
+      "pxe": [
+        {
+          "access_info": "eth0.ai",
+          "image_path": "F6-POD14/f3a-9904-r3-pod14/f3a-9904-r3-pod14.iso",
+          "protocol": "http",
+          "server": "ott-idt-pxe1"
+        }
+      ],
+      "type": "router"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.72",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "virtual",
+          "name": "virtual"
+        },
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.70",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "RP0",
+          "name": "RP0"
+        },
+        {
+          "address_info": [
+            {
+              "address": "10.85.114.15",
+              "name": "a",
+              "port": 10000
+            }
+          ],
+          "interface": "console",
+          "name": "console"
+        }
+      ],
+      "alias": "R4",
+      "handles": [
+        {
+          "connection": "ha",
+          "credential": "default",
+          "name": "console",
+          "via": "console"
+        },
+        {
+          "connection": "ssh",
+          "credential": "default",
+          "default": true,
+          "name": "vty",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "telnet",
+          "credential": "default",
+          "name": "telnet",
+          "via": "virtual.ai"
+        },
+        {
+          "connection": "ydk",
+          "credential": "default",
+          "default": true,
+          "name": "ydk",
+          "via": "virtual.ai"
+        }
+      ],
+      "id": 460,
+      "interfaces": [
+        {
+          "alias": "R3_R4_1",
+          "interface": "TenGigE0/0/0/0",
+          "link": "R3_R4_1"
+        }
+      ],
+      "line_cards": [
+        {
+          "slot": "0/0/CPU0",
+          "type": "FIX"
+        }
+      ],
+      "name": "f3a-r4-pod14",
+      "os": "cisco_xr",
+      "platform": "XRV9000",
+      "skip_bake": true,
+      "type": "router"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.66.11.199",
+              "gateway": "5.66.0.1",
+              "mask": "255.255.0.0",
+              "name": "ai"
+            }
+          ],
+          "interface": "eth1",
+          "name": "eth1"
+        }
+      ],
+      "alias": "U1",
+      "credential": "UCS1",
+      "handles": [
+        {
+          "connection": "linux",
+          "credential": "UCS1",
+          "default": true,
+          "name": "linux",
+          "via": "eth1.ai"
+        }
+      ],
+      "id": 459,
+      "interfaces": [
+        {
+          "alias": "R1_U1_1",
+          "interface": "eth2",
+          "link": "R1_U1_1"
+        },
+        {
+          "alias": "R1_U1_2",
+          "interface": "eth3",
+          "link": "R1_U1_2"
+        }
+      ],
+      "name": "ott-f6-pod14",
+      "os": "linux",
+      "platform": "linux",
+      "type": "linux"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "10.85.82.220",
+              "name": "ai"
+            }
+          ],
+          "interface": "eth0",
+          "name": "eth0"
+        }
+      ],
+      "alias": "U2",
+      "credential": "UCS1",
+      "dhcpd_root": "/etc/dhcp",
+      "handles": [
+        {
+          "connection": "nso",
+          "credential": "UCS1",
+          "default": true,
+          "name": "linux",
+          "via": "eth0.ai"
+        }
+      ],
+      "id": 7,
+      "name": "ott-cafy-vm3",
+      "platform": "linux",
+      "type": "linux",
+      "web_root": "/nobackup/html/"
+    },
+    {
+      "access_info": [
+        {
+          "address_info": [
+            {
+              "address": "5.1.13.72",
+              "name": "ai"
+            }
+          ],
+          "interface": "eth0",
+          "name": "eth0"
+        }
+      ],
+      "alias": "U3",
+      "credential": "UCS1",
+      "dhcpd_root": "/etc/dhcp",
+      "handles": [
+        {
+          "connection": "nso",
+          "credential": "UCS1",
+          "default": true,
+          "name": "linux",
+          "via": "eth0.ai"
+        }
+      ],
+      "id": 7,
+      "name": "cafy-vm3",
+      "platform": "linux",
+      "type": "linux",
+      "web_root": "/nobackup/html/"
+    },
+    {
+      "alias": "TGEN",
+      "chassis_ip": "5.66.15.230",
+      "id": 464,
+      "interfaces": [
+        {
+          "alias": "R1_T1_1",
+          "interface": "5.66.15.230/4/9",
+          "link": "R1_T1_1"
+        },
+        {
+          "alias": "R1_T1_2",
+          "interface": "5.66.15.230/4/10",
+          "link": "R1_T1_2"
+        },
+        {
+          "alias": "R1_T1_3",
+          "interface": "5.66.15.230/4/11",
+          "link": "R1_T1_3"
+        },
+        {
+          "alias": "R2_T1_1",
+          "interface": "5.66.15.230/4/12",
+          "link": "R2_T1_1"
+        },
+        {
+          "alias": "R2_T1_2",
+          "interface": "5.66.15.230/4/13",
+          "link": "R2_T1_2"
+        },
+        {
+          "alias": "R3_T1_1",
+          "interface": "5.66.15.230/4/14",
+          "link": "R3_T1_1"
+        },
+        {
+          "alias": "R3_T1_2",
+          "interface": "5.66.15.230/4/15",
+          "link": "R3_T1_2"
+        }
+      ],
+      "name": "5.66.15.230",
+      "platform": "SPIRENT",
+      "server_ip": [
+        "5.5.14.17",
+        "5.5.14.16"
+      ],
+      "type": "tgn"
+    }
+  ]
+}
