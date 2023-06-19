@@ -8,7 +8,7 @@ class Singleton:
 		return cls.instance
 
 	def __init__(self, **kwargs):
-		Singleton._shared_dict.update(kwargs)
+		self._shared_dict.update(kwargs)
 
 	def __str__(self):
 		return str(self._shared_dict)
@@ -52,7 +52,7 @@ class Database:
 		return cls.instance
 
 	def __init__(self, **kwargs):
-		Database._shared_dict.update(kwargs)
+		self._shared_dict.update(kwargs)
 
 	def __str__(self):
 		return str(self._shared_dict)

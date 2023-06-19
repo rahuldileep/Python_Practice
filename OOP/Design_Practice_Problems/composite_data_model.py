@@ -49,12 +49,19 @@ class MenuComponent(ABC):
     def __init__(self,menuitem) -> None:
         self.menuitem = menuitem
 
+    @abstractmethod
+    def add(self):
+        pass
+
 class MenuItem(MenuComponent):
     def __init__(self, menuitem) -> None:
         super().__init__(menuitem)
     
     def printmenu(self):
         print(self.menuitem)
+
+    def add(self):
+        pass
 
 class Menu(MenuComponent):
     def __init__(self, name) -> None:
@@ -67,14 +74,16 @@ class Menu(MenuComponent):
                 print("%s>>"%(comp.menuitem))
             comp.printmenu()
 
+    def add(self, menuitem):
+        self.components.append(menuitem)
 
 file = Menu("File")
-file.components.append(MenuItem("New"))
-file.components.append(MenuItem("Open"))
-file.components.append(MenuItem("Close"))
+file.add(MenuItem("New"))
+file.add(MenuItem("Open"))
+file.add(MenuItem("Close"))
 recent_files = Menu("recent")
 file.components.append(recent_files)
-recent_files.components.append(MenuItem("file1.txt"))
-recent_files.components.append(MenuItem("file2.txt"))
-recent_files.components.append(MenuItem("file3.txt"))
+recent_files.add(MenuItem("file1.txt"))
+recent_files.add(MenuItem("file2.txt"))
+recent_files.add(MenuItem("file3.txt"))
 file.printmenu()

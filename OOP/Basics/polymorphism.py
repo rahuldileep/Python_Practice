@@ -23,7 +23,7 @@ c.method_2()
 
 # Method overloading - Methods are said to be overloaded if a class has more than one method with the same name,
 # but either the number of arguments is different, or the type of arguments is different.
-#Python does not support method ovrloading, multiple methods with same name cannot me defined. Instead we define
+# Python does not support method ovrloading, multiple methods with same name cannot me defined. Instead we define
 # parameters with a default value
 class Area:
     def calculateArea(self, length, breadth=-1):

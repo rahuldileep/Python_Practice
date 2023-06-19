@@ -21,6 +21,7 @@ class AbstractHandler(Handler):
 		return handler
 
 	def handle(self, request):
+		print(f"Super handling {request} for {self}")
 		if self._next_handler:
 			return self._next_handler.handle(request)
 		return None
@@ -32,6 +33,7 @@ class MonkeyHandler(AbstractHandler):
 		if request == "banana":
 			return "Monkey: I will eat {}".format(request)
 		else:
+			print(f"Monkey: I dont want {request}")
 			return super().handle(request)
 
 class SquirrelHandler(AbstractHandler):
@@ -41,6 +43,7 @@ class SquirrelHandler(AbstractHandler):
 		if request == "nut":
 			return "Squirrel: I will eat {}".format(request)
 		else:
+			print(f"Squirrel: I dont want {request}")
 			return super().handle(request)
 
 class DogHandler(AbstractHandler):
@@ -50,6 +53,7 @@ class DogHandler(AbstractHandler):
 		if request == "Bone":
 			return "Dog: I will eat {}".format(request)
 		else:
+			print(f"Dog: I dont want {request}")
 			return super().handle(request)
 
 def client_code(handler):
