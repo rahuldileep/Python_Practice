@@ -72,10 +72,10 @@ print("\n*******************************EXAMPLE 2*******************************
 
 class ATM:
 	_currentATMState = None
-
+	
 	def __init__(self, currentATMState):
-	    self.changestate(currentATMState)
-
+		self.changestate(currentATMState)
+		
 	def changestate(self,new_state):
 		print(f"State changing from {self._currentATMState} to {new_state}")
 		self._currentATMState = new_state
