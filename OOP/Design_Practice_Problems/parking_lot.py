@@ -89,69 +89,47 @@ class ParkingSpot(ABC):
 	def generateID(self) :
 		return str(time.time()).split('.')[0]
 		
-	@abstractmethod
-	def assign_vehicle(self, vehicle):
-		pass
 
 class CompactSpot(ParkingSpot):
 	def __init__(self):
 		super().__init__()
-	def assign_vehicle(self, vehicle):
-		pass
 
 class LargeSpot(ParkingSpot):
 	def __init__(self):
 		super().__init__()
-	def assign_vehicle(self, vehicle):
-		pass
 
 class HandicappedSpot(ParkingSpot):
 	def __init__(self):
 		super().__init__()
-	def assign_vehicle(self, vehicle):
-		pass
 
 class MotorcycleSpot(ParkingSpot):
 	def __init__(self):
 		super().__init__()
-	def assign_vehicle(self, vehicle):
-		pass
 
 class Vehicle(ABC):
 
 	def __init__(self, license_plate):
 		self.license_plate = license_plate
-	@abstractmethod
-	def assign_ticket(self, ticket):
-		pass
 
 class CompactVehicle(Vehicle):
 	def __init__(self, license_plate):
 		super().__init__(license_plate)
 		self.vehicle_type = VehicleType.COMPACT
-	def assign_ticket(self, ticket):
-		pass
 
 class LargeVehicle(Vehicle):
 	def __init__(self, license_plate):
 		super().__init__(license_plate)
 		self.vehicle_type = VehicleType.LARGE
-	def assign_ticket(self, ticket):
-		pass
 
 class Motorcycle(Vehicle):
 	def __init__(self, license_plate):
 		super().__init__(license_plate)
 		self.vehicle_type = VehicleType.MOTORCYCLE
-	def assign_ticket(self, ticket):
-		pass
 
 class HandicappedVehicle(Vehicle):
 	def __init__(self, license_plate):
 		super().__init__(license_plate)
 		self.vehicle_type = VehicleType.HANDICAPPED
-	def assign_ticket(self, ticket):
-		pass
 
 class Entrance:
 	def __init__(self):
