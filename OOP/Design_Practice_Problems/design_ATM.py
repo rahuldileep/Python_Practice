@@ -1,98 +1,100 @@
-# 1.Requirements
-#  1.1 - User should be able to check balance, transfer and withdraw money
-#  1.2 - Each user should have a Savings and Checking account
-#  1.3 - ATM authenticates the user using the pin
-#  1.4 - ATM should have a screen, keypad, dispenser, printer, cardreader
-#  1.5 - User should have an option to end or start a new transaction in the end
+"""
+1.Requirements
+ 1.1 - User should be able to check balance, transfer and withdraw money
+ 1.2 - Each user should have a Savings and Checking account
+ 1.3 - ATM authenticates the user using the pin
+ 1.4 - ATM should have a screen, keypad, dispenser, printer, cardreader
+ 1.5 - User should have an option to end or start a new transaction in the end
 
-# 2.Identify the main actors of the system
-#  2.1 - User
-#  2.2 - System
-#  2.3 - Cardissuer/BANK
+2.Identify the main actors of the system
+ 2.1 - User
+ 2.2 - System
+ 2.3 - Cardissuer/BANK
 
-# 3.Define actions/use cases for each actor
-#  3.1 - User
-#   - Insert Card
-#   - Change PIN
-#   - Transaction - Check Balance, Withdraw money, transfer
-#   - Cancel transaction
-#  3.2 - Cardissuer
-#   - Authenticate User
-#   - Check Transaction limit for account
-#   - Check sufficient funds in account
-#  3.3 - System/bank
-#   - Authenticate User
-#   - Check sufficient funds in ATM
-#   - Check ATM withdrawal limit
-#   - Dispense money
-#   - Print receipt
-#   - Return Card
+3.Define actions/use cases for each actor
+ 3.1 - User
+  - Insert Card
+  - Change PIN
+  - Transaction - Check Balance, Withdraw money, transfer
+  - Cancel transaction
+ 3.2 - Cardissuer
+  - Authenticate User
+  - Check Transaction limit for account
+  - Check sufficient funds in account
+ 3.3 - System/bank
+  - Authenticate User
+  - Check sufficient funds in ATM
+  - Check ATM withdrawal limit
+  - Dispense money
+  - Print receipt
+  - Return Card
 
-# 4.Identify extend and include relationships between use cases
-#  4.1 - "Transaction" use case has an extend relationship with "print receipt" use case because we have an option to get the receipt
-#  4.2 - "Insert Card" use case has an include relationship with "Authenticate user" use cases in both Cardissuer and System
-#  4.3 - "Transfer" use case has an include relationship with "Check sufficient" and "Check Transaction limit" in account
-#  4.4 - "Withdraw money" use case has include relationships with "Check sufficient funds in ATM", "Check ATM withdrawal limit",
-#        "Check Transaction limit for account", "Check sufficient funds in account". 
-#      - Also, "Withdraw money" use case has include relationship"Dispense money".
-#  4.5 - "Transaction" use case and the "Cancel Transaction" use case have an include relationship with the "Return card" use case
+4.Identify extend and include relationships between use cases
+ 4.1 - "Transaction" use case has an extend relationship with "print receipt" use case because we have an option to get the receipt
+ 4.2 - "Insert Card" use case has an include relationship with "Authenticate user" use cases in both Cardissuer and System
+ 4.3 - "Transfer" use case has an include relationship with "Check sufficient" and "Check Transaction limit" in account
+ 4.4 - "Withdraw money" use case has include relationships with "Check sufficient funds in ATM", "Check ATM withdrawal limit",
+       "Check Transaction limit for account", "Check sufficient funds in account". 
+     - Also, "Withdraw money" use case has include relationship"Dispense money".
+ 4.5 - "Transaction" use case and the "Cancel Transaction" use case have an include relationship with the "Return card" use case
 
-# 5.Identify components/Classes of the system
-#  - User
-#  - ATM
-#  - ATMCard
-#  - ATMRoom
-#  - Bank
-#  - BankAccount - SavingAccount, CheckingAccount
-#  - Screen
-#  - Keypad
-#  - Printer
-#  - CardReader
-#  - CashDispenser
-#  - ATMState -  CheckBalanceState, CashWithdrawalState, TransferMoneyState, HasCardState, IdleState, SelectOperationState 
-#  - Enums
+5.Identify components/Classes of the system
+ - User
+ - ATM
+ - ATMCard
+ - ATMRoom
+ - Bank
+ - BankAccount - SavingAccount, CheckingAccount
+ - Screen
+ - Keypad
+ - Printer
+ - CardReader
+ - CashDispenser
+ - ATMState -  CheckBalanceState, CashWithdrawalState, TransferMoneyState, HasCardState, IdleState, SelectOperationState 
+ - Enums
 
-# 6.Identify Association, Composition, Inheritance relationships
-#  6.1 - Association
-#   - ATMRoom has one-way relationship with ATM and User
-#   - User class has one-way relationship with BankAccount and ATMCard classes
-#   - ATMCard has one-way relationship with BankAccount
-#   - ATM class has one-way relationship with Bank and ATMState
+6.Identify Association, Composition, Inheritance relationships
+ 6.1 - Association
+  - ATMRoom has one-way relationship with ATM and User
+  - User class has one-way relationship with BankAccount and ATMCard classes
+  - ATMCard has one-way relationship with BankAccount
+  - ATM class has one-way relationship with Bank and ATMState
 
-#  6.2 - Composition
-#   - ATM class has Composition relationship with Screen, Keypad, Printer, CardReader, CashDispenser
+ 6.2 - Composition
+  - ATM class has Composition relationship with Screen, Keypad, Printer, CardReader, CashDispenser
 
-#  6.3 - Inheritance
-#   - Both, SavingAccount and CurrentAccount, extend the BankAccount class.
-#   - The CheckBalanceState, CashWithdrawalState, TransferMoneyState, HasCardState, IdleState, and SelectOperationState classes 
-#       extend the abstract class, ATMState.
+ 6.3 - Inheritance
+  - Both, SavingAccount and CurrentAccount, extend the BankAccount class.
+  - The CheckBalanceState, CashWithdrawalState, TransferMoneyState, HasCardState, IdleState, and SelectOperationState classes 
+      extend the abstract class, ATMState.
 
-# 7.Class Diagram
+7.Class Diagram
 
-# 8.Design Pattern
-#  8.1 - The Singleton design pattern
-#      This pattern ensures the existence of a single instance of the ATM at a given moment 
-#      that can be accessed by multiple users, due to the shared nature of the ATM components
-#  8.2 - The State design pattern
-#      This pattern enables the ATM to alter its behavior based on the internal changes in the machine. 
-#      This way, an ATM can transition from one state to another and as soon as all the operations have 
-#      been performed, it can switch back to the initial idle state
+8.Design Pattern
+ 8.1 - The Singleton design pattern
+     This pattern ensures the existence of a single instance of the ATM at a given moment 
+     that can be accessed by multiple users, due to the shared nature of the ATM components
+ 8.2 - The State design pattern
+     This pattern enables the ATM to alter its behavior based on the internal changes in the machine. 
+     This way, an ATM can transition from one state to another and as soon as all the operations have 
+     been performed, it can switch back to the initial idle state
 
-# 9.Enums
-#  9.1 - ATMState
-#   - Idle
-#   - Card inserted by the user
-#   - Option selected
-#   - Cash withdrawal
-#   - Transfer money
-#   - Display the account balance
+9.Enums
+ 9.1 - ATMState
+  - Idle
+  - Card inserted by the user
+  - Option selected
+  - Cash withdrawal
+  - Transfer money
+  - Display the account balance
 
-#  9.2 - TransactionType
-#   - Balance inquiry
-#   - Cash withdrawal
-#   - transfer
+ 9.2 - TransactionType
+  - Balance inquiry
+  - Cash withdrawal
+  - transfer
 
-# 10.Code
+10.Code
+"""
 
 from enum import Enum
 from abc import ABC, abstractmethod

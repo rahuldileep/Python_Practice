@@ -1,3 +1,4 @@
+"""
 # 1.Requirements
 # 1.1 - Multi level parking with a capacity of 10,000
 # 1.2 - Different types of parking spots. Compact, Large, Handicapped, Motorcycle.
@@ -62,6 +63,7 @@
 # 9.3 - SpotType
 
 # 10. Code
+"""
 
 from abc import ABC, abstractmethod
 from enum import Enum
